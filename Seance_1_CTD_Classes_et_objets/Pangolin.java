@@ -10,7 +10,6 @@
 
 
 public class Pangolin{
-
   /** la coordenada x del pangolin. */
   private double x;
   /**La coordenada y del Pangolin. */
@@ -40,4 +39,47 @@ public class Pangolin{
   public void crier() {
     System.out.println("Gwwark Rhââgn Bwwikk");
   }
+
+  //Here the rest of the Pangolin Class (Como se muestra a continuación)
+  //[..]
+  //On les appellent en Francais comme Accesseurs et mutateurs mais en Anglais
+  //On les appelent Getters and Setters
+
+  //A getter
+  public int get getNbEcailles(){
+    return this.nbEcailles;
+  }
+
+  //A Setter
+  public void setNbEcailles(int nb){
+    if (nb<=0){
+      throw new IllegalArgumentException("Le nombre d'écailles doit être strictement positif !");
+    }
+    else{
+      this.nbEcailles=nb;
+    }
+  }
+
+  /**
+  *Un constructeur est une « méthode » spécifique d'une classe, portant le nom de cette
+  *classe, sans type de retour, et qui exécute du code au moment de la création de
+  *l'objet. Voici un exemple.
+  */
+
+  //Here the rest of the Pangolin class (Come se muestra a continuación)
+  public Pangolin(String nom, double xInit, double yInit, int nbEcailles){
+    this.nom=nom;
+    this.x=xInit;
+    this.y=yInit;
+    this.setNbEcailles(nbEcailles);
+  }
+
+  //Une classe peut contenir plusieurs constructeurs. Ces constructeurs peuvent 
+  //même faire appel l'un à l'autre.
+  public Pangolin(String nom, int nbEcailles) {
+        //Lorsque on utilise this sans un méthode precedé ou objet, c'est parce
+        //que on est en train de lancer cette info au constructeur
+        this(nom, 0, 0, nbEcailles); // Appel au constructeur à quatre paramètres
+  }
+
 }
